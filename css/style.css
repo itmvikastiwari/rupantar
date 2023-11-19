@@ -123,6 +123,12 @@ ol {
      list-style: none;
 }
 
+ul,
+li,
+.bullet {
+     list-style: circle;
+}
+
 p {
      margin: 0px;
      font-weight: 300;
@@ -381,6 +387,22 @@ ul.costomer li a {
      line-height: 40px;
      font-weight: bold;
      padding: 0;
+}
+
+.titlepage p {
+     color: #1f1716;
+     font-size: 17px;
+     line-height: 28px;
+     padding: 40px 0;
+}
+
+.titlepage span {
+    width: 100px;
+    height: 100px;
+    border-radius: 60px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 
@@ -844,6 +866,60 @@ $grey: #999;
 }
 .address p a {
     color: #fff;
+}
+
+.productheading {
+    color: #000 !important;
+}
+
+.footer-icons {
+    background-color: transparent;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-top: 4rem;
+  }
+  
+.footer-icons-menu {
+    display: flex;
+    flex-direction: column;
+}
+  
+.social-icons {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+  
+.social-icons li {
+    margin-right: 1rem;
+    padding: 0.8rem 1rem;
+    list-style: none;
+}
+  
+.social-icons li:last-child {
+    margin-right: 0;
+}
+  
+.social-icons a {
+    color: darkcyan;
+    font-size: 2.2rem;
+    transition: color 0.3s ease-in-out;
+    border-radius: 50px;
+}
+  
+.social-icons a:hover {
+    color: #f8f8f8fa;
+}
+  
+.footer-end p {
+    margin: 0;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 /** end footer **/
