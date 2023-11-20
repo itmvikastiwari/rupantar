@@ -142,17 +142,17 @@
                         <div class="item">
                            <span style="background: url(images/clients/quikr_logo.png) rgb(221, 221, 221) center/contain no-repeat;"></span>
                            <h3>Quikr </h3>
-                           <p>The objective of this project is to design and construct a comprehensive data integration service that facilitates the collection of user activity data, including clicks and page views. This data will be seamlessly integrated into a data pipeline hosted on Amazon Web Services (AWS), enabling the creation of a data lake for in-depth analysis. The insights gained from this analysis will contribute to enhancing the user experience.<br/><br/><br/><a href="company/Quikr.html#company">Read More</a></p>
+                           <p>The objective of this project is to design and construct a comprehensive data integration service that facilitates the collection of user activity data, including clicks and page views. This data will be seamlessly integrated into a data pipeline hosted on Amazon Web Services (AWS), enabling the creation of a data lake for in-depth analysis. The insights gained from this analysis will contribute to enhancing the user experience.<br/><br/><br/><a href="client/Quikr.html#company" class="know">Read More</a></p>
                         </div>
                         <div class="item">
                            <span style="background: url(images/clients/simplify-logo.svg) rgb(221, 221, 221) center/contain no-repeat;"></span>
                            <h3>Simplify VMS </h3>
-                           <p>The goal of this project is to design and develop a robust data streaming pipeline service that aut1omates the collection of data change logs from both SQL and NoSQL databases. The collected data will be stored in a data lake and subsequently transformed into a structured format, serving as a reliable source for machine learning and data analytics endeavors, & text search capability with filters and ranking function.<br/><br/><br/><a href="company/Simplify.html#company">Read More</a></p>
+                           <p>The goal of this project is to design and develop a robust data streaming pipeline service that aut1omates the collection of data change logs from both SQL and NoSQL databases. The collected data will be stored in a data lake and subsequently transformed into a structured format, serving as a reliable source for machine learning and data analytics endeavors, & text search capability with filters and ranking function.<br/><br/><br/><a href="client/Simplify.html#company" class="know">Read More</a></p>
                         </div>
                         <div class="item">
                            <span style="background: url(images/clients/bengal-remedis.png) rgb(221, 221, 221) center/contain no-repeat;"></span>
                            <h3>Bengal Remedis </h3>
-                           <p>The objective of this project is to design, develop, and deploy a comprehensive cloud-based Platform tailored for Pharma Industry Operations Management. This is an end to end automated platform managing leads, tele-callers, feet on street sales force, beat planning, geofencing based beat execution, attendence, conveyance calculation, target vs achivement etc. Also it takes care of end end Pharmaceutical Product management and procure to order lifecycle.<br/><a href="company/Bengal.html#company">Read More</a></p>
+                           <p>The objective of this project is to design, develop, and deploy a comprehensive cloud-based Platform tailored for Pharma Industry Operations Management. This is an end to end automated platform managing leads, tele-callers, feet on street sales force, beat planning, geofencing based beat execution, attendence, conveyance calculation, target vs achivement etc. Also it takes care of end end Pharmaceutical Product management and procure to order lifecycle.<br/><a href="client/Bengal.html#company" class="know">Read More</a></p>
                         </div>
                      </div>
                   </div>
@@ -242,7 +242,7 @@
                   </div>
                </div>
                <div class="col-md-6">
-                  <form class="main_form">
+                  <form id="my-form" class="main_form" method="POST" action="https://formspree.io/f/xzblqore">
                      <div class="row">
                         <div class="col-sm-12">
                            <input class="contactus" placeholder="Full Name" type="text" name="
@@ -258,8 +258,9 @@
                            <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
                         </div>
                         <div class="col-sm-12">
-                           <button class="send">Send</button>
+                           <button id="my-form-button" class="send">Send</button>
                         </div>
+                        <p id="my-form-status"></p>
                      </div>
                   </form>
                </div>
@@ -288,7 +289,7 @@
                </div>
                <div class="row">
                   <div class="col-md-12">
-                     <p>© 2019 All Rights Reserved. <a href="https://rupantar.tech/">Rupantar Technologies Pvt Ltd</a></p>
+                     <p class="copy">© 2019 All Rights Reserved. <a href="https://rupantar.tech/">Rupantar Technologies Pvt Ltd</a></p>
                   </div>
                </div>
             </div>
@@ -326,7 +327,7 @@
            })
          })
       </script>
-      
+
       <script>
          $('.content').hide();
          
@@ -336,6 +337,39 @@
          $(this).children("span").text(this.toggle ? "-" : "+");
          return false;
          });
+      </script>
+
+      <script>
+          var form = document.getElementById("my-form");
+          
+          async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+              method: form.method,
+              body: data,
+              headers: {
+                  'Accept': 'application/json'
+              }
+            }).then(response => {
+              if (response.ok) {
+                status.innerHTML = "Thanks reaching out! Will get back to you soon!";
+                form.reset()
+              } else {
+                response.json().then(data => {
+                  if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                  } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                  }
+                })
+              }
+            }).catch(error => {
+              status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+          }
+          form.addEventListener("submit", handleSubmit)
       </script>
    </body>
 </html>

@@ -403,6 +403,7 @@ ul.costomer li a {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    display: inline-block;
 }
 
 
@@ -569,6 +570,7 @@ ul.costomer li a {
      background: #3fbc61;
      border-radius: 20px;
      padding: 20px;
+     min-height: 500px;
 }
 
 .item span {
@@ -592,6 +594,13 @@ ul.costomer li a {
 .item p {
      padding: 0px 10px 10px 10px;
      color: #fff;
+}
+
+.know {
+     position: absolute;
+     bottom: 10px;
+     left: 0;
+     right: 0;
 }
 
 .owl-nav {
@@ -920,6 +929,10 @@ $grey: #999;
     margin: 0;
     font-size: 0.8rem;
     text-align: center;
+}
+
+.copy {
+    font-size: 10px;
 }
 
 /** end footer **/
