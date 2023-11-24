@@ -774,6 +774,12 @@ $grey: #999;
      color: #41c365;
 }
 
+.whiteweare {
+    color: #41c365;
+    text-align: left;
+    width: 170px !important;
+}
+
 .cont {
      text-align: left;
 }
